@@ -1,0 +1,13 @@
+    <h2>Add Painter</h2>
+ 
+      <div class="form-group">
+        <label for="fullname">Fullname:</label>
+        <input type="text" class="form-control" placeholder="Enter fullname" [(ngModel)]="fullname" name="fullname">
+      </div>
+      <div class="form-group">
+        <label for="fullname">Country:</label>
+        <input type="text" class="form-control"  placeholder="Enter country" [(ngModel)]="country" name="fullname">
+      </div>
+
+      <button type="button" (click)="Add()" class="btn btn-primary">Add</button>
+   
