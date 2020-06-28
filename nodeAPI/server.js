@@ -12,7 +12,13 @@ const painterSchema = new Schema({
     country:String   
 })
 
+const categorySchema = new Schema({
+    name:String,
+    description:String
+})
+
 const painter = mongoose.model("Painter",painterSchema);
+const category = mongoose.model("Category",categorySchema);
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -55,6 +61,32 @@ app.post("/api/painter/delete",(req,res)=>{
     painter.findByIdAndDelete(id,(err,doc)=>{
         if(!err){
             res.json({msg:"Success"});
+        }
+        else{
+            res.json(err);
+        }
+    })
+});
+
+app.post("/api/category/add",(req,res)=>{
+    var name = req.body.name;
+    var desc = req.body.description;
+
+    var ca = new category({
+        name: name,
+        description:desc
+    });
+
+    ca.save();
+
+    res.send("Success!!");
+})
+
+
+app.get("/api/category/getall",(req,res)=>{
+    category.find({},(err,doc)=>{
+        if(!err){
+            res.json(doc);
         }
         else{
             res.json(err);
