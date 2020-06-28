@@ -18,4 +18,8 @@ export class PainterService {
   GetAllPainters(){
     return this._http.get("http://localhost:3000/api/painter/getall");
   }
+
+  DeletePainter(id){
+   return  this._http.post("http://localhost:3000/api/painter/delete",{id:id})
+  }
 }

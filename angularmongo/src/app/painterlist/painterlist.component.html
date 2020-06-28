@@ -12,7 +12,7 @@
         <td>{{item._id}}</td>
         <td>{{item.fullname}}</td>
         <td>{{item.country}}</td>
-        <td>Otto</td>
+        <td><button (click)="Delete(item._id)" class="btn btn-danger">Delete</button></td>
       </tr>
     </tbody>
   </table>

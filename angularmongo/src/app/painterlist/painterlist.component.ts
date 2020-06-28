@@ -12,9 +12,19 @@ export class PainterlistComponent implements OnInit {
   constructor(private _painterservice:PainterService) { }
 
   ngOnInit(): void {
-     this._painterservice.GetAllPainters().subscribe((data:[])=>{
-       this.painters = data;
-     });
+    this.Load();
+  }
+
+  Delete(id){
+      this._painterservice.DeletePainter(id).subscribe((q)=>{
+        this.Load();
+      })
+  }
+
+  Load(){
+    this._painterservice.GetAllPainters().subscribe((data:[])=>{
+      this.painters = data;
+    });
   }
 
 }
