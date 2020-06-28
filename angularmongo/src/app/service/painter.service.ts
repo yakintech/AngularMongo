@@ -16,6 +16,6 @@ export class PainterService {
   }
 
   GetAllPainters(){
-
+    return this._http.get("http://localhost:3000/api/painter/getall");
   }
 }

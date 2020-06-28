@@ -36,6 +36,30 @@ app.post("/api/painter/add",(req,res)=>{
 
     res.json({msg:"OK"});
     
+});
+
+app.get("/api/painter/getall",(req,res)=>{
+    painter.find({},(err,doc)=>{
+        if(!err){
+            res.json(doc);
+        }
+        else{
+            res.json(err);
+        }
+    })
+});
+
+app.post("/api/painter/delete",(req,res)=>{
+    var id = req.body.id;
+
+    painter.findByIdAndDelete(id,(err,doc)=>{
+        if(!err){
+            res.json({msg:"Success"});
+        }
+        else{
+            res.json(err);
+        }
+    })
 })
 
 app.listen(3000);

@@ -6,11 +6,14 @@ import { HttpClientModule }    from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddpainterComponent } from './addpainter/addpainter.component';
+import { PainterlistComponent } from './painterlist/painterlist.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddpainterComponent
+    AddpainterComponent,
+    PainterlistComponent,
   ],
   imports: [
     BrowserModule,
